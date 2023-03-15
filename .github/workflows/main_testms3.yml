@@ -16,14 +16,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v1
+      - name: Set up Go
+        uses: actions/setup-go@v1
         with:
-          dotnet-version: '6.0.x'
-          include-prerelease: true
-
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+          go-version: 1.18
+          
+      - name: Copy static template files
+        run: xcopy /i templates build\templates
+        
+      - name: Copy static public files
+        run: xcopy /i public build\public
+            
+      - name: Build with go
+        run: go build -o build/go-app.exe -v
+        
+      - name: Test
+        run: go test
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
@@ -54,4 +62,4 @@ jobs:
           app-name: 'TestMS3'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF9C825CF4EB4848BE71EA7F30662B79 }}
-          package: .
+          package: build/
