@@ -49,5 +49,5 @@ jobs:
           app-name: 'TestMS3'
           slot-name: 'godev'
           package: build/
-          publish-profile: ${{ secrets.AZUREWEBAPPPUBLISHPROFILE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF9C825CF4EB4848BE71EA7F30662B79 }}
 
