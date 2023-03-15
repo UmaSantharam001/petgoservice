@@ -47,7 +47,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'TestMS3'
-          slot-name: 'TestMS3'
           package: build/
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF9C825CF4EB4848BE71EA7F30662B79 }}
 
