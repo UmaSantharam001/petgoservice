@@ -16,9 +16,3 @@ Main.go has a couple of tweaks to support running on Azure App Service:
 - A file watcher is set up to look for "App_offline.htm" and terminate the application if present. This file is added during the WebDeploy Github Action. This is required because otherwise the executable will be locked during subsequent deployments. (.NET apps handle this using the AspNetCoreModule, which doesn't work here.)
 
 On Azure, set up a Windows App Service and download the publish profile to your Github secrets if you want to use the Github action in this repo as is.
-
-
-
-### Attributions
-
-Gopher 3D render Art by James4K - https://github.com/james4k/gopher. The original Go gopher was designed by Renee French. The design is licensed under the Creative Commons 3.0 Attributions license. Read this article for more details: http://blog.golang.org/gopher.
