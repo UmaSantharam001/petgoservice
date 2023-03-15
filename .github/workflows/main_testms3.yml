@@ -33,12 +33,7 @@ jobs:
       - name: Test
         run: go test
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: go-app
-          path: ${{env.DOTNET_ROOT}}/myapp
-
+  
   deploy:
     runs-on: windows-latest
     needs: build
@@ -47,11 +42,6 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: go-app
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
