@@ -1,4 +1,4 @@
-module github.com/edandersen/go-azure-appservice
+module github.com/UmaSantharam001/petgoservice
 
 go 1.18
 
