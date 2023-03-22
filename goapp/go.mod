@@ -1,4 +1,4 @@
-module github.com/UmaSantharam001/petgoservice
+module github.com/UmaSantharam001/petgoservice/goapp
 
 go 1.18
 
